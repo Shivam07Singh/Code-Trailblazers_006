@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Code Trailblazers_006</title>
+    <script>
+      window.onload = function () {
+        if (localStorage.getItem("loggedIn") !== "true") {
+          window.location.href = "login.html";
+        } else {
+          console.log("Logged in sucessfully");
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Code Trailblazers_006</h1>
+      <button id="logout-btn">Logout</button>
+    </header>
+    <section id="controls">
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Home & Kitchen">Home & Kitchen</option>
+        <option value="Cameras">Cameras</option>
+        <option value="Home Appliances">Home Appliances</option>
+        <option value="Wearables">Wearables</option>
+      </select>
+
+      <select id="sortByPrice">
+        <option value="asc">Sort by Price: Low to High</option>
+        <option value="desc">Sort by Price: High to Low</option>
+      </select>
+      <a href="cart.html" id="cart_icon">
+        <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #6e6e6e"></i>
+      </a>
+    </section>
+
+    <section id="product-container"></section>
+
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>
