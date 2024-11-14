@@ -3,92 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login_signup.css" />
     <title>Login Page</title>
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        margin: 0;
-        height: 100vh;
-        background: #ffffff;
-      }
-      form {
-        background-color: rgb(255, 166, 166);
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 25%;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-      }
-      h1 {
-        text-align: center;
-        color: #333;
-      }
-      label {
-        margin-bottom: 10px;
-        display: block;
-        color: #3d3d3d;
-        font-size: 18px;
-      }
-
-      input[type="password"],
-      input[type="email"] {
-        width: 90%;
-        padding: 8px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-      input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        border-radius: 4px;
-        color: white;
-        background-color: #5c67f2;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      input[type="submit"]:hover {
-        background-color: #1f2ef4;
-      }
-
-      button{
-        border-radius: 6px;
-        border: 1px solid gray;
-        background-color: lightseagreen;
-        color: #ffffff;
-        margin: auto;
-        padding: 7px 15px;
-        font-size: 14px;
-      }
-
-      @media screen and (max-width: 900px) {
-        form {
-        width: 40%;
-      }
-      }
-      @media screen and (max-width: 468px) {
-        form {
-        width: 75%;
-      }
-      }
-    </style>
   </head>
   <body>
-    <h2>Login Page</h2>
-    <form id="createUserForm">
-      <label for="email">Email:</label>
-      <input type="email" id="email" placeholder="Enter email" required />
-      <label for="password">Password:</label>
-      <input type="password" id="password" placeholder="Enter password" required />
-      <button type="submit">Login</button>
-      <p>Don't have an account? <a href="signup.html"> Signup here</a></p>
-    </form>
+    <div class="login_container">
+      <img id="Logo" src="assets/LOGO.jpg" alt="LOGO">
+      <div class="formParent">
+        <img id="Welcome" src="assets/Black_And_White_Modern_Music_Logo-removebg-preview.png" alt="">
+        <form id="createUserForm">
+          <h3>Log in with your Email</h3>
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Enter email" required />
+          <label for="password">Password:</label>
+          <input type="password" id="password" placeholder="Enter password" required />
+          <button type="submit">Login</button>
+          <p>Don't have an account? </p>
+          <a href="signup.html"> SignUp here</a>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
 
@@ -119,7 +53,7 @@
       .then((resp) => resp.json())
       .then((res) => {
         if (res.error) {
-          alert("User not registered, SignUp first" );
+          alert("User not registered, SignUp first");
         } else {
           window.location.href = "index.html";
         }
