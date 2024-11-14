@@ -1,0 +1,82 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #cf9797;
+    color: #333;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .artist-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .artist-card {
+    background-color: #fff;
+    width: 350px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .artist-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .artist-card h3 {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
+  .artist-card p {
+    margin-top: 5px;
+    color: #777;
+  }
+  
+  .artist-card a {
+    color: #1db954;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: bold;
+  }
+  
+  .artist-card a:hover {
+    text-decoration: underline;
+  }
+  
+  .artist-card img {
+    width: 250px; 
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
