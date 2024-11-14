@@ -1,0 +1,141 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#Logo {
+  width: 45%;
+  height: 100vh;
+}
+
+#Welcome {
+  width: 300px;
+  margin: auto;
+}
+
+.login_container {
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: column; */
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  background: #ffffff;
+  background: linear-gradient(rgb(255, 143, 71), #9ae2ff);
+  /* background: #000; */
+}
+
+.formParent {
+  width: 65%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  /* background-color: rgb(255, 166, 166); */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 45%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  background-color: rgb(225, 255, 255);
+  /* background: linear-gradient(#fc8f8f, #717dff ); */
+}
+
+h1 {
+  text-align: center;
+  color: rgb(205, 255, 78);
+  /* color: #3d3d3d; */
+  font-size: 40px;
+  font-weight: bolder;
+  font-style: italic;
+  font-family: sans-serif;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+
+h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+label {
+  margin-bottom: 10px;
+  margin-left: 15px;
+  display: block;
+  color: #3d3d3d;
+  font-size: 24px;
+}
+
+input[type="password"],
+input[type="email"],
+button {
+  width: 90%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #aeabab;
+  border-radius: 25px;
+  font-size: 16px;
+}
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  background-color: #5c67f2;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+input[type="submit"]:hover {
+  background-color: #1f2ef4;
+}
+
+button {
+  /* border-radius: 6px; */
+  border: 1px solid gray;
+  background-color: lightseagreen;
+  color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  /* padding: 7px 15px; */
+  /* font-size: 14px; */
+}
+
+p,
+a {
+  font-size: 18px;
+  margin: auto;
+}
+
+@media screen and (max-width: 900px) {
+  form {
+    width: 65%;
+  }
+}
+@media screen and (max-width: 468px) {
+  form {
+    width: 75%;
+  }
+  .formParent {
+    width: 100%;
+  }
+  .login_container {
+    display: flex;
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+}
