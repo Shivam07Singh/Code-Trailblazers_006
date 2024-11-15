@@ -1,80 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Podcast Streaming Platform</title>
-    <link rel="stylesheet" href="podcast.css">
-</head>
+    <link rel="stylesheet" href="podcast.css" />
+  </head>
 
-<body>
+  <body>
     <div class="dashboard-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <h2>Podify</h2>
-            <nav>
-                <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-Album"></i> Album</a></li>
-                    <li><a href="#"><i class="fas fa-Artist"></i> Artist</a></li>
-                    <li><a href="#"><i class="fas fa-Playlist"></i> Playlist</a></li>
-                </ul>
-            </nav>
-        </aside>
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2>Podify</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="#"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-Album"></i> Album</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-Artist"></i> Artist</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-Playlist"></i> Playlist</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Top Bar -->
-            <header class="top-bar">
-                <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="Search podcasts..." oninput="filterPodcasts()">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
-                <h1>Trending Podcasts</h1>
-            </header>
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+          <div class="search-bar">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search podcasts..."
+              oninput="filterPodcasts()"
+            />
+            <button><i class="fas fa-search"></i></button>
+          </div>
+          <h1>Trending Podcasts</h1>
+        </header>
 
-            <!-- Podcast List -->
-            <section class="podcasts">
-                <div class="podcast" data-audio="Alicia Keys _ Removing Negative Thoughts out of Your Space.mp3" data-title="Alicia Keys: 5 Ways to Overcome Self Doubt & Build Confidence Within">
-                    <img src="https://t.ly/DUOqe" alt="Podcast 1 Thumbnail">
-                    <div class="podcast-info">
-                        <h2>Alicia Keys: 5 Ways to Overcome Self Doubt & Build Confidence Within</h2>
-                        <p>1m</p>
-                    </div>
-                </div>
-                <div class="podcast" data-audio="1.mp3" data-title="Can You Be Friends with Your Ex?">
-                    <img src="https://t.ly/8-_09" alt="Podcast 2 Thumbnail">
-                    <div class="podcast-info">
-                        <h2>Can You Be Friends with Your Ex?</h2>
-                        <p>4m 12s</p>
-                    </div>
-                </div>
-                <div class="podcast" data-audio="How to meditate for beginners .mp3" data-title="How to Meditate for Beginners">
-                    <img src="https://t.ly/bAG5y" alt="Podcast 3 Thumbnail">
-                    <div class="podcast-info">
-                        <h2>How to Meditate for Beginners</h2>
-                        <p>30s</p>
-                    </div>
-                </div>
-                <div class="podcast" data-audio="Hanuman Ji Puja Ke Benefits.mp3" data-title="Hanuman Ji Puja Ke Benefits">
-                    <img src="https://t.ly/_L_fb" alt="Podcast 3 Thumbnail">
-                    <div class="podcast-info">
-                        <h2>Hanuman Ji Puja Ke Benefits</h2>
-                        <p>52s</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Audio Player -->
-            <div class="audio-player-container">
-                <audio id="audioPlayer" controls></audio>
+        <!-- Podcast List -->
+        <section class="podcasts">
+          <div
+            class="podcast"
+            data-audio="assets/audio/Alicia Keys _ Removing Negative Thoughts out of Your Space.mp3"
+            data-title="Alicia Keys: 5 Ways to Overcome Self Doubt & Build Confidence Within"
+          >
+            <img src="https://t.ly/DUOqe" alt="Podcast 1 Thumbnail" />
+            <div class="podcast-info">
+              <h2>Alicia Keys: 5 Ways to Overcome Self Doubt & Build Confidence Within</h2>
+              <p>1m</p>
             </div>
+          </div>
+          <div
+            class="podcast"
+            data-audio="assets/audio/1.mp3"
+            data-title="Can You Be Friends with Your Ex?"
+          >
+            <img src="https://t.ly/8-_09" alt="Podcast 2 Thumbnail" />
+            <div class="podcast-info">
+              <h2>Can You Be Friends with Your Ex?</h2>
+              <p>4m 12s</p>
+            </div>
+          </div>
+          <div
+            class="podcast"
+            data-audio="assets/audio/How to meditate for beginners .mp3"
+            data-title="How to Meditate for Beginners"
+          >
+            <img src="https://t.ly/bAG5y" alt="Podcast 3 Thumbnail" />
+            <div class="podcast-info">
+              <h2>How to Meditate for Beginners</h2>
+              <p>30s</p>
+            </div>
+          </div>
+          <div
+            class="podcast"
+            data-audio="assets/audio/Hanuman Ji Puja Ke Benefits.mp3"
+            data-title="Hanuman Ji Puja Ke Benefits"
+          >
+            <img src="https://t.ly/_L_fb" alt="Podcast 4 Thumbnail" />
+            <div class="podcast-info">
+              <h2>Hanuman Ji Puja Ke Benefits</h2>
+              <p>52s</p>
+            </div>
+          </div>
+          <div
+            class="podcast"
+            data-audio="assets/audio/Life is about creating Yourself.mp3"
+            data-title="Life is about creating Yourself"
+          >
+            <img src="assets/Life is about.jpg" alt="Podcast 5 Thumbnail" />
+            <div class="podcast-info">
+              <h2>Life is about creating Yourself</h2>
+              <p>22m 01s</p>
+            </div>
+          </div>
+          <div
+            class="podcast"
+            data-audio="assets/audio/Dont Confuse.mp3"
+            data-title="Dont Confuse"
+          >
+            <img src="assets/Dont Confuse.jpg" alt="Podcast 6 Thumbnail" />
+            <div class="podcast-info">
+              <h2>Dont Confuse Weakness With Moral Virtue</h2>
+              <p>11m 09s</p>
+            </div>
+          </div>
+          <div
+            class="podcast"
+            data-audio="assets/audio/LISTEN EVERY NIGHT BEFORE SLEEP.mp3"
+            data-title="LISTEN EVERY NIGHT BEFORE SLEEP"
+          >
+            <img src="assets/LISTEN EVERY NIGHT BEFORE SLEEP.jpg" alt="Podcast 7 Thumbnail" />
+            <div class="podcast-info">
+              <h2>LISTEN EVERY NIGHT BEFORE SLEEP</h2>
+              <p>31m 37s</p>
+            </div>
+          </div>
+          <div
+            class="podcast"
+            data-audio="assets/audio/LISTEN THIS EVERYDAY AND CHANGE YOUR LIFE.mp3"
+            data-title="LISTEN THIS EVERYDAY AND CHANGE YOUR LIFE"
+          >
+            <img src="assets/Life is about.jpg" alt="Podcast 8 Thumbnail" />
+            <div class="podcast-info">
+              <h2>LISTEN THIS EVERYDAY AND CHANGE YOUR LIFE</h2>
+              <p>22m 01s</p>
+            </div>
+          </div>
+          <div
+            class="podcast"
+            data-audio="assets/audio/WHEN LIFE IS HARD.mp3"
+            data-title="WHEN LIFE IS HARD"
+          >
+            <img src="assets/WHEN LIFE IS HARD.jpg" alt="Podcast 9 Thumbnail" />
+            <div class="podcast-info">
+              <h2>WHEN LIFE IS HARD</h2>
+              <p>6m 01s</p>
+            </div>
+          </div>
+          <div
+            class="podcast"
+            data-audio="assets/audio/WORK NONSTOP.mp3"
+            data-title="WORK NONSTOP"
+          >
+            <img src="assets/WORK NONSTOP.jpg" alt="Podcast 10 Thumbnail" />
+            <div class="podcast-info">
+              <h2>WORK NONSTOP</h2>
+              <p>4m 58s</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Audio Player -->
+        <div class="audio-player-container">
+          <audio id="audioPlayer" controls></audio>
         </div>
+      </div>
     </div>
 
     <script src="podcast.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</body>
-
+  </body>
 </html>
