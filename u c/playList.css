@@ -1,0 +1,94 @@
+/* playList.css */
+
+/* Body and Global Styles */
+body {
+    background-color: #1a202c; /* Dark background */
+    color: #e2e8f0; /* Light text color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+/* Header Styling */
+header {
+    background-color: #2d3748; /* Darker gray */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  #playlist{
+    color:#48bb78;
+    font-size: 30px;
+  }
+
+
+/* Logo Styling */
+#logo {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #4a5568; /* Slightly darker border */
+  }
+
+/* Search Container */
+.search-container input {
+    background-color: #4a5568; /* Gray background for input */
+    color: #e2e8f0;
+    border: 1px solid #2d3748; /* Darker border */
+    transition: border 0.3s ease;
+  }
+
+.search-container input:focus {
+    border-color: #48bb78; /* Green border on focus */
+  }
+
+.search-container button {
+    background-color: #48bb78; /* Green background */
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+.search-container button:hover {
+    background-color: #38a169; /* Slightly darker green */
+  }
+
+/* Section Title */
+#sectionTitle {
+    color: #48bb78; /* Green title color */
+  }
+
+/* Song Container Grid */
+.song-container div {
+    background: #2d3748; /* Darker gray cards */
+    color: #e2e8f0;
+    padding: 12px;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.3s ease;
+  }
+
+.song-container div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(72, 187, 120, 0.3); /* Green shadow */
+  }
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .search-container input {
+        width: 100%;
+      }
+  }
+
+  .user{
+    position:relative;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+.user img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px #121213;
+}
