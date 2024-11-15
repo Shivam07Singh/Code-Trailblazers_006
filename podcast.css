@@ -8,7 +8,7 @@
 body {
     display: flex;
     justify-content: center;
-    background-color: #f9fafb;
+    background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);;
     color: #333;
 }
 
