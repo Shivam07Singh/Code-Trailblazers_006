@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <div class="container">
         <aside class="sidebar">
             <div class="logo">
@@ -18,84 +17,21 @@
                     <i class='bx bx-log-out-circle'></i>
                 </button>
                 <i class='bx bx-pulse'></i>
-                <a href="#">AsmrProg</a>
+                <a href="#">Sonic <br> Sargam</a>
             </div>
-
             <div class="menu">
                 <h5>Menu</h5>
                 <ul>
-                    <li>
-                        <i class='bx bxs-bolt-circle'></i>
-                        <a href="#">Explore</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-volume-full'></i>
-                        <a href="#">Genres</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-album'></i>
-                        <a href="#">Albums</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-microphone'></i>
-                        <a href="#">Artists</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-radio'></i>
-                        <a href="#">Poddcasts</a>
-                    </li>
+                    <li><i class='bx bxs-bolt-circle'></i><a href="#">Explore</a></li>
+                    <li><i class='bx bxs-volume-full'></i><a href="#">Genres</a></li>
+                    <li><i class='bx bxs-album'></i><a href="#">Albums</a></li>
+                    <li><i class='bx bxs-microphone'></i><a href="#">Artists</a></li>
+                    <li><i class='bx bxs-radio'></i><a href="#">Podcasts</a></li>
                 </ul>
             </div>
-
-            <div class="menu">
-                <h5>Library</h5>
-                <ul>
-                    <li>
-                        <i class='bx bx-undo'></i>
-                        <a href="#">Recent</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-photo-album'></i>
-                        <a href="#">Albums</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-heart'></i>
-                        <a href="#">Favourites</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-folder'></i>
-                        <a href="#">Local</a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="menu">
-                <h5>Playlist</h5>
-                <ul>
-                    <li>
-                        <i class='bx bxs-plus-square'></i>
-                        <a href="#">Create New</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-caret-right-circle'></i>
-                        <a href="#">Best of 2023</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-caret-right-circle'></i>
-                        <a href="#">Best of 2022</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-caret-right-circle'></i>
-                        <a href="#">Kael Fischer</a>
-                    </li>
-
-                </ul>
-            </div>
-
             <div class="playing">
                 <div class="top">
-                    <img src="assets/current.png">
+                    <img src="assets/current.png" alt="Current Device">
                     <h4>Apple<br>Homepod</h4>
                 </div>
                 <div class="bottom">
@@ -103,8 +39,6 @@
                     <p>Playing On Device</p>
                 </div>
             </div>
-
-
         </aside>
 
         <main>
@@ -113,16 +47,14 @@
                     <button class="menu-btn" id="menu-open">
                         <i class='bx bx-menu'></i>
                     </button>
-                    <a href="#">Music</a>
+                    <!-- <a href="#">Music</a>
                     <a href="#">Live</a>
-                    <a href="#">Podcast</a>
+                    <a href="#">Podcast</a> -->
                 </div>
-
                 <div class="search">
                     <i class='bx bx-search'></i>
-                    <input type="text" placeholder="Type here to search">
+                    <input type="text" id="search-input" placeholder="Search songs, artists, genres...">
                 </div>
-
             </header>
 
             <div class="trending">
@@ -133,12 +65,13 @@
                         <h4>Rion Clarke</h4>
                         <h5>63 Million Plays</h5>
                         <div class="buttons">
-                            <button>Listen Now</button>
+                            <!-- Button to toggle audio play/pause -->
+                            <button id="listen-now">Listen Now</button>
                             <i class='bx bxs-heart'></i>
                         </div>
                     </div>
                 </div>
-                <img src="assets/trend.png">
+                <img src="assets/trend.png" alt="Trending Image">
             </div>
 
             <div class="playlist">
@@ -147,41 +80,26 @@
                         <h5>Genres</h5>
                         <a href="#">See all</a>
                     </div>
-
-                    <div class="items">
-                        <div class="item">
-                            <p>Electro<br>Pop</p>
-                        </div>
-                        <div class="item">
-                            <p>Dance<br>Beeat</p>
-                        </div>
-                        <div class="item">
-                            <p>Clubhouse<br>Remix</p>
-                        </div>
-                        <div class="item">
-                            <p>Hip Hop<br>Rap</p>
-                        </div>
-                        <div class="item">
-                            <p>Alternative<br>Indie</p>
-                        </div>
-                        <div class="item">
-                            <p>Classical<br>Period</p>
-                        </div>
+                    <div class="items" id="genre-list">
+                        <div class="item"><p>Electro<br>Pop</p></div>
+                        <div class="item"><p>Dance<br>Beat</p></div>
+                        <div class="item"><p>Clubhouse<br>Remix</p></div>
+                        <div class="item"><p>Hip Hop<br>Rap</p></div>
+                        <div class="item"><p>Alternative<br>Indie</p></div>
+                        <div class="item"><p>Classical<br>Period</p></div>
                     </div>
-
                 </div>
 
-                <div class="music-list">
+                <div class="music-list" id="music-list">
                     <div class="header">
                         <h5>Top Songs</h5>
                         <a href="#">See all</a>
                     </div>
-
-                    <div class="items">
-                        <div class="item">
+                    <div class="items" id="song-list">
+                        <div class="item" data-src="media\Sunrise G Thing 320 Kbps.mp3">
                             <div class="info">
                                 <p>01</p>
-                                <img src="assets/song-1.png">
+                                <img src="assets/song-1.png" alt="Sunrise">
                                 <div class="details">
                                     <h5>Sunrise</h5>
                                     <p>Lila Rivera</p>
@@ -189,95 +107,45 @@
                             </div>
                             <div class="actions">
                                 <p>03:45</p>
-                                <div class="icon">
-                                    <i class='bx bxs-right-arrow'></i>
-                                </div>
+                                <div class="icon"><i class='bx bxs-right-arrow'></i></div>
                                 <i class='bx bxs-plus-square'></i>
                             </div>
                         </div>
-                        <div class="item">
+                        <div class="item" data-src="media\Shape-Of-You(PagalNew.Com.Se).mp3">
                             <div class="info">
                                 <p>02</p>
-                                <img src="assets/song-2.png">
+                                <img src="assets/song-2.png" alt="Shape-Of-You">
                                 <div class="details">
-                                    <h5>Voyage</h5>
-                                    <p>Tyde Brennnan</p>
+                                    <h5>Shape-Of-You</h5>
+                                    <p>Ed Sheeren</p>
                                 </div>
                             </div>
                             <div class="actions">
                                 <p>04:35</p>
-                                <div class="icon">
-                                    <i class='bx bxs-right-arrow'></i>
-                                </div>
+                                <div class="icon"><i class='bx bxs-right-arrow'></i></div>
                                 <i class='bx bxs-plus-square'></i>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="info">
-                                <p>03</p>
-                                <img src="assets/song-3.png">
-                                <div class="details">
-                                    <h5>Breeze</h5>
-                                    <p>Sola Kim</p>
-                                </div>
-                            </div>
-                            <div class="actions">
-                                <p>04:22</p>
-                                <div class="icon">
-                                    <i class='bx bxs-right-arrow'></i>
-                                </div>
-                                <i class='bx bxs-plus-square'></i>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="info">
-                                <p>04</p>
-                                <img src="assets/song-4.png">
-                                <div class="details">
-                                    <h5>Twilight</h5>
-                                    <p>Jett Lawsonn</p>
-                                </div>
-                            </div>
-                            <div class="actions">
-                                <p>03:17</p>
-                                <div class="icon">
-                                    <i class='bx bxs-right-arrow'></i>
-                                </div>
-                                <i class='bx bxs-plus-square'></i>
-                            </div>
-                        </div>
+                        <!-- Add additional songs as needed -->
                     </div>
-
                 </div>
-
             </div>
-
-
         </main>
 
         <div class="right-section">
-
             <div class="profile">
                 <i class='bx bxs-bell'></i>
                 <i class='bx bxs-cog'></i>
                 <div class="user">
-                    <div class="left">
-                        <img src="assets/profile.png">
-                    </div>
-                    <div class="right">
-                        <h5>Jhon Doe</h5>
-                    </div>
+                    <div class="left"><img src="assets/profile.png" alt="Profile"></div>
+                    <div class="right"><h5>Jhon Doe</h5></div>
                 </div>
             </div>
-
             <div class="music-player">
                 <div class="top-section">
-                    <div class="header">
-                        <h5>Player</h5>
-                        <i class='bx bxs-playlist'></i>
-                    </div>
+                    <div class="header"><h5>Player</h5><i class='bx bxs-playlist'></i></div>
                     <div class="song-info">
-                        <img src="assets/player.png">
+                        <img src="assets/player.png" alt="Album Art">
                         <div class="description">
                             <h3>Ripple Echoes</h3>
                             <h5>Kael Fischer</h5>
@@ -291,7 +159,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="player-actions">
                     <div class="buttons">
                         <i class='bx bx-repeat'></i>
@@ -299,21 +166,97 @@
                         <i class='bx bxs-right-arrow play-button'></i>
                         <i class='bx bx-last-page'></i>
                         <i class='bx bx-transfer-alt'></i>
+                        <!-- Pause Button -->
+                        <i class="bx bx-pause pause-button"></i>
                     </div>
                     <div class="lyrics">
                         <i class='bx bx-chevron-up'></i>
                         <h5>LYRICS</h5>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
+    <audio id="audio-player" controls style="display: none;"></audio>
+    <audio id="lost-emotion-audio" src="media\DNDM - Lost Emotions (Original mix).mp3" style="display: none;"></audio>
 
-    <script src="script.js"></script>
+    <!-- JavaScript to handle song playback and search functionality -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const audioPlayer = document.getElementById("audio-player");
+            const songItems = document.querySelectorAll(".music-list .item");
+            const pauseButton = document.querySelector(".pause-button");
+            const playButton = document.querySelector(".play-button");
+            const searchInput = document.getElementById("search-input");
+            const songList = document.getElementById("song-list");
+            const genreList = document.getElementById("genre-list");
+
+            // Function to play the selected song
+            function playSong(item) {
+                const songSrc = item.getAttribute("data-src");
+
+                if (songSrc) {
+                    audioPlayer.src = songSrc; // Set audio source
+                    audioPlayer.play(); // Play the song
+                    updatePlayPauseIcons(true);
+                }
+            }
+
+            // Function to update play/pause icons
+            function updatePlayPauseIcons(isPlaying) {
+                if (isPlaying) {
+                    playButton.style.display = "none";
+                    pauseButton.style.display = "inline-block";
+                } else {
+                    playButton.style.display = "inline-block";
+                    pauseButton.style.display = "none";
+                }
+            }
+
+            // Pause song functionality
+            pauseButton.addEventListener("click", () => {
+                audioPlayer.pause();
+                updatePlayPauseIcons(false);
+            });
+
+            // Add click event listener to each song item
+            songItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    playSong(item);
+                });
+            });
+
+            // Update play/pause icon when audio is paused
+            audioPlayer.addEventListener("pause", () => {
+                updatePlayPauseIcons(false);
+            });
+
+            // Update play/pause icon when audio is played
+            audioPlayer.addEventListener("play", () => {
+                updatePlayPauseIcons(true);
+            });
+
+            // Search functionality
+            searchInput.addEventListener("input", (event) => {
+                const query = event.target.value.toLowerCase();
+
+                // Filter song items based on search query
+                const filteredSongs = Array.from(songItems).filter(item => {
+                    const songTitle = item.querySelector("h5").textContent.toLowerCase();
+                    const songArtist = item.querySelector("p").textContent.toLowerCase();
+                    return songTitle.includes(query) || songArtist.includes(query);
+                });
+
+                // Clear the existing song list and append filtered songs
+                songList.innerHTML = '';
+                filteredSongs.forEach(item => {
+                    songList.appendChild(item);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
+
