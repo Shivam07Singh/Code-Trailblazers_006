@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="artist.css">
 </head>
 <body>
-
   <div class="container">
     <h1>Artist Showcase</h1>
-    <input type="text" id="searchBar" placeholder="Search artists..." onkeyup="searchArtist()" class="search-input">
-
-    <div id="artistList" class="artist-list">
-      <!-- Artist cards will be inserted here dynamically -->
-    </div>
+    <input type="text" id="searchBar" placeholder="Search artists..." class="search-input">
+    
+    <button id="viewFavorites" onclick="openFavoritesPage()">View Favorite Artists</button>
+    
+    <h2>Trending Artists</h2>
+    <div id="artistList" class="artist-list"></div>
   </div>
 
   <script src="artist.js"></script>

@@ -1,108 +1,117 @@
-// Sample artist data
-const artists = [
-    {
-      name: "Sonu Nigam",
-      genres: ["Pop", "Dance pop"],
-      imageUrl: "image/01.jpg",
-      spotifyUrl: "https://open.spotify.com/artist/6eUKZXaKkcviwAqL9H2fJY"
+const clientId = 'fe151298159341f891fdd90b8a69bf1b';
+const clientSecret = '4112f4ca733b4ffca0dbee6fc06302dd';
+let accessToken = '';
+
+const artistList = document.getElementById('artistList');
+const searchBar = document.getElementById('searchBar');
+let favoriteArtists = JSON.parse(localStorage.getItem('favoriteArtists')) || [];
+
+async function getAccessToken() {
+  const response = await fetch('https://accounts.spotify.com/api/token', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret)
     },
-    {
-      name: "Arijit Singh",
-      genres: ["Rock", "Alternative"],
-      imageUrl: "image/02.jpg",
-      spotifyUrl: "https://open.spotify.com/artist/4bzMuIu5Uscpo25P5rsE5h"
-    },
-    {
-      name: "Shreya Ghoshal",
-      genres: ["Pop", "Dance pop"],
-      imageUrl: "image/03.jpg",
-      spotifyUrl: "https://open.spotify.com/artist/3jOxdN8PAm0aJNSrRjX9RP"
-    },
-    {
-      name: "Lata Mangeshkar",
-      genres: ["Hip-Hop", "Pop rap"],
-      imageUrl: "image/04.jpg",
-      spotifyUrl: "https://open.spotify.com/artist/0hUwwbdq4YzmHkWh8zWznK"
-    },
-    {
-      name: "Atif Aslam",
-      genres: ["Alternative", "Indie pop"],
-      imageUrl: "image/05.jpg",
-      spotifyUrl: "https://open.spotify.com/artist/4rOoJ6Egrf8K2IrywzwOMk"
-    },
-    {
-      name: "Asha Bhosle",
-      genres: ["Pop", "R&B"],
-      imageUrl: "image/06.jpg",
-      spotifyUrl: "https://open.spotify.com/artist/66CXWjxzVfMYer4mA1mXG9"
-    },
-    {
-      name: "Kishore Kumar",
-      genres: ["Pop", "Country"],
-      imageUrl: "image/07.jpg",
-      spotifyUrl: "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
-    },
-    {
-      name: "Kumar Sanu",
-      genres: ["Pop", "Alternative"],
-      imageUrl: "image/08.jpg",
-      spotifyUrl: "https://open.spotify.com/artist/6XyY86QPM2jH1cR1p2n1fM"
-    },
-    {
-      name: "Mohd Rafi",
-      genres: ["Hip-Hop", "Rap"],
-      imageUrl: "image/09.jpg",
-      spotifyUrl: "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
-    },
-    {
-      name: "Jubin Nautiyal",
-      genres: ["K-Pop", "Pop"],
-      imageUrl: "image/10.jpg",
-      spotifyUrl: "https://open.spotify.com/artist/3NrfpX0o6x7K3K1K7lUjx1"
-    },
-    {
-        name: "Rihanna",
-        genres: ["Hip-Hop", "Rap"],
-        imageUrl: "image/11.jpg",
-        spotifyUrl: "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4"
-      },
-      {
-        name: "Michael Jackson",
-        genres: ["K-Pop", "Pop"],
-        imageUrl: "image/12.jpg",
-        spotifyUrl: "https://open.spotify.com/artist/3NrfpX0o6x7K3K1K7lUjx1"
-      }
-  ];
-  
-  // Function to display artists on the page
-  function displayArtists(artistArray) {
-    const artistList = document.getElementById('artistList');
-    artistList.innerHTML = ''; // Clear the current list
-  
-    artistArray.forEach(artist => {
-      const artistCard = document.createElement('div');
-      artistCard.classList.add('artist-card');
-      
-      artistCard.innerHTML = `
-        <img src="${artist.imageUrl}" alt="${artist.name}">
-        <h3>${artist.name}</h3>
-        <p>Genres: ${artist.genres.join(', ')}</p>
-        <a href="${artist.spotifyUrl}" target="_blank">View on Spotify</a>
-      `;
-  
-      artistList.appendChild(artistCard);
+    body: 'grant_type=client_credentials'
+  });
+
+  const data = await response.json();
+  accessToken = data.access_token;
+  fetchMohammedRafi(); // Fetch Mohammed Rafi as the default artist
+}
+
+async function fetchMohammedRafi() {
+  try {
+    const response = await fetch(`https://api.spotify.com/v1/search?q=Mohammed%20Rafi&type=artist&limit=1`, {
+      headers: { 'Authorization': 'Bearer ' + accessToken }
     });
+
+    const data = await response.json();
+    const artist = data.artists.items[0]; // Get the first artist result (Mohammed Rafi)
+    displayArtists([artist]);
+  } catch (error) {
+    console.error('Failed to fetch Mohammed Rafi:', error);
+    artistList.innerHTML = `<p>Failed to load Mohammed Rafi.</p>`;
   }
-  
-  // Function to search artists by name
-  function searchArtist() {
-    const searchTerm = document.getElementById('searchBar').value.toLowerCase();
-    const filteredArtists = artists.filter(artist => 
-      artist.name.toLowerCase().includes(searchTerm)
-    );
-    displayArtists(filteredArtists);
+}
+
+async function searchArtist() {
+  const query = searchBar.value.trim().toLowerCase();
+  if (!query) return;
+
+  try {
+    const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=artist&limit=10`, {
+      headers: { 'Authorization': 'Bearer ' + accessToken }
+    });
+    const data = await response.json();
+    displayArtists(data.artists.items);
+  } catch (error) {
+    console.error('Error fetching artists:', error);
+    artistList.innerHTML = `<p>Failed to load search results.</p>`;
   }
-  
-  // Initial display of all artists
-  displayArtists(artists);
-  
+}
+
+function displayArtists(artists) {
+  artistList.innerHTML = '';
+  artists.forEach(artist => {
+    const artistCard = document.createElement('div');
+    artistCard.classList.add('artist-card');
+    const isFavorite = favoriteArtists.some(fav => fav.id === artist.id);
+
+    artistCard.innerHTML = `
+      <img src="${artist.images[0]?.url || 'default-image.jpg'}" alt="${artist.name}">
+      <h3>${artist.name}</h3>
+      <p>Popularity: ${artist.popularity}</p>
+      <p>Followers: ${artist.followers.total.toLocaleString()}</p>
+      <p>Genres: ${artist.genres.join(', ') || 'N/A'}</p>
+      <a href="${artist.external_urls.spotify}" target="_blank">View on Spotify</a>
+      <span class="heart" data-id="${artist.id}" style="color: ${isFavorite ? 'red' : 'gray'};">&#x2764;</span>
+    `;
+
+    artistList.appendChild(artistCard);
+  });
+
+  document.querySelectorAll('.heart').forEach(heart => {
+    heart.addEventListener('click', toggleFavoriteArtist);
+  });
+}
+
+function toggleFavoriteArtist(event) {
+  const artistId = event.target.dataset.id;
+  const artistCard = event.target.closest('.artist-card');
+  const artist = {
+    id: artistId,
+    name: artistCard.querySelector('h3').innerText,
+    image: artistCard.querySelector('img').src,
+    url: artistCard.querySelector('a').href
+  };
+
+  const index = favoriteArtists.findIndex(fav => fav.id === artistId);
+  if (index >= 0) {
+    favoriteArtists.splice(index, 1);
+    event.target.style.color = 'gray';
+  } else {
+    favoriteArtists.push(artist);
+    event.target.style.color = 'red';
+  }
+
+  localStorage.setItem('favoriteArtists', JSON.stringify(favoriteArtists));
+  window.dispatchEvent(new Event('favoriteUpdated')); // Dispatch an event when favorites are updated
+}
+
+function openFavoritesPage() {
+  window.open('favorites.html', '_blank');
+}
+
+searchBar.addEventListener('input', searchArtist);
+getAccessToken();
+
+// Listen for the "favoriteUpdated" event to update heart colors
+window.addEventListener('favoriteUpdated', () => {
+  document.querySelectorAll('.heart').forEach(heart => {
+    const artistId = heart.dataset.id;
+    const isFavorite = favoriteArtists.some(fav => fav.id === artistId);
+    heart.style.color = isFavorite ? 'red' : 'gray';
+  });
+});
