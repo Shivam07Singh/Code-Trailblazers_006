@@ -1,4 +1,4 @@
-// Select all podcast elements, audio player, and audio player container
+    // Select all podcast elements, audio player, and audio player container
 const podcasts = document.querySelectorAll('.podcast');
 const audioPlayer = document.getElementById('audioPlayer');
 const audioPlayerContainer = document.querySelector('.audio-player-container');
