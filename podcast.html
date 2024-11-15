@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Streaming Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Podify</h2>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-podcast"></i> Podcasts</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> Favorites</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search podcasts..." oninput="filterPodcasts()">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <h1>Trending Podcasts</h1>
+            </header>
+
+            <!-- Podcast List -->
+            <section class="podcasts">
+                <div class="podcast" data-audio="Alicia Keys _ Removing Negative Thoughts out of Your Space.mp3" data-title="Alicia Keys: 5 Ways to Overcome Self Doubt & Build Confidence Within">
+                    <img src="https://t.ly/DUOqe" alt="Podcast 1 Thumbnail">
+                    <div class="podcast-info">
+                        <h2>Alicia Keys: 5 Ways to Overcome Self Doubt & Build Confidence Within</h2>
+                        <p>1m</p>
+                    </div>
+                </div>
+                <div class="podcast" data-audio="1.mp3" data-title="Can You Be Friends with Your Ex?">
+                    <img src="https://t.ly/8-_09" alt="Podcast 2 Thumbnail">
+                    <div class="podcast-info">
+                        <h2>Can You Be Friends with Your Ex?</h2>
+                        <p>4m 12s</p>
+                    </div>
+                </div>
+                <div class="podcast" data-audio="How to meditate for beginners .mp3" data-title="How to Meditate for Beginners">
+                    <img src="https://t.ly/bAG5y" alt="Podcast 3 Thumbnail">
+                    <div class="podcast-info">
+                        <h2>How to Meditate for Beginners</h2>
+                        <p>30s</p>
+                    </div>
+                </div>
+                <div class="podcast" data-audio="Hanuman Ji Puja Ke Benefits.mp3" data-title="Hanuman Ji Puja Ke Benefits">
+                    <img src="https://t.ly/_L_fb" alt="Podcast 3 Thumbnail">
+                    <div class="podcast-info">
+                        <h2>Hanuman Ji Puja Ke Benefits</h2>
+                        <p>52s</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audio Player -->
+            <div class="audio-player-container">
+                <audio id="audioPlayer" controls></audio>
+            </div>
+        </div>
+    </div>
+
+    <script src="podcast.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
