@@ -22,8 +22,8 @@
             <div class="menu">
                 <h5>Menu</h5>
                 <ul>
-                    <li><i class='bx bxs-bolt-circle'></i><a href="#">Explore</a></li>
-                    <li><i class='bx bxs-volume-full'></i><a href="#">Genres</a></li>
+                    <li><i class='bx bxs-bolt-circle'></i><a href="https://open.spotify.com/home?facet=music-chip" target="_blank">Explore</a></li>
+                    <li><i class='bx bxs-volume-full'></i><a href="#">Playlist</a></li>
                     <li><i class='bx bxs-album'></i><a href="#">Albums</a></li>
                     <li><i class='bx bxs-microphone'></i><a href="#">Artists</a></li>
                     <li><i class='bx bxs-radio'></i><a href="#">Podcasts</a></li>
@@ -32,7 +32,7 @@
             <div class="playing">
                 <div class="top">
                     <img src="assets/current.png" alt="Current Device">
-                    <h4>Apple<br>Homepod</h4>
+                    <h4>sonic<br>sargam</h4>
                 </div>
                 <div class="bottom">
                     <i class='bx bx-podcast'></i>
@@ -47,13 +47,13 @@
                     <button class="menu-btn" id="menu-open">
                         <i class='bx bx-menu'></i>
                     </button>
-                    <!-- <a href="#">Music</a>
-                    <a href="#">Live</a>
-                    <a href="#">Podcast</a> -->
                 </div>
                 <div class="search">
                     <i class='bx bx-search'></i>
                     <input type="text" id="search-input" placeholder="Search songs, artists, genres...">
+                </div>
+                <div class="logout-container">
+                    <button id="logout-btn">Logout</button>
                 </div>
             </header>
 
@@ -66,7 +66,10 @@
                         <h5>63 Million Plays</h5>
                         <div class="buttons">
                             <!-- Button to toggle audio play/pause -->
-                            <button id="listen-now">Listen Now</button>
+                                <audio controls>
+                                    <source src="media\DNDM - Lost Emotions (Original mix).mp3" type="audio/mp3">
+                                    Your browser does not support the audio element.
+                                </audio>
                             <i class='bx bxs-heart'></i>
                         </div>
                     </div>
@@ -77,7 +80,7 @@
             <div class="playlist">
                 <div class="genres">
                     <div class="header">
-                        <h5>Genres</h5>
+                        <h5>Playlist</h5>
                         <a href="#">See all</a>
                     </div>
                     <div class="items" id="genre-list">
@@ -126,7 +129,51 @@
                                 <i class='bx bxs-plus-square'></i>
                             </div>
                         </div>
-                        <!-- Add additional songs as needed -->
+                        <div class="item" data-src="media\Justin Bieber - Baby ft. Ludacris.mp3">
+                            <div class="info">
+                                <p>02</p>
+                                <img src="assets/song-3.png" alt="Ludacris">
+                                <div class="details">
+                                    <h5>Baby ft. Ludacris</h5>
+                                    <p>Justin Bieber</p>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <p>04:35</p>
+                                <div class="icon"><i class='bx bxs-right-arrow'></i></div>
+                                <i class='bx bxs-plus-square'></i>
+                            </div>
+                        </div>
+                        <div class="item" data-src="media\Imagine Dragons - Believer (Lyrics).mp3">
+                            <div class="info">
+                                <p>02</p>
+                                <img src="assets/song-4.png" alt="Believer">
+                                <div class="details">
+                                    <h5>Believer</h5>
+                                    <p>Imagine Dragons</p>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <p>04:35</p>
+                                <div class="icon"><i class='bx bxs-right-arrow'></i></div>
+                                <i class='bx bxs-plus-square'></i>
+                            </div>
+                        </div>
+                        <div class="item" data-src="media\Hanumankind  Big Dawgs  Ft. Kalmi (Official Music Video)  Def Jam India.mp3">
+                            <div class="info">
+                                <p>02</p>
+                                <img src="assets/trend.png" alt="Big Dawgs">
+                                <div class="details">
+                                    <h5>Big Dawgs</h5>
+                                    <p>Hanumankind</p>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <p>04:35</p>
+                                <div class="icon"><i class='bx bxs-right-arrow'></i></div>
+                                <i class='bx bxs-plus-square'></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -179,7 +226,6 @@
     </div>
 
     <audio id="audio-player" controls style="display: none;"></audio>
-    <audio id="lost-emotion-audio" src="media\DNDM - Lost Emotions (Original mix).mp3" style="display: none;"></audio>
 
     <!-- JavaScript to handle song playback and search functionality -->
     <script>
@@ -191,6 +237,31 @@
             const searchInput = document.getElementById("search-input");
             const songList = document.getElementById("song-list");
             const genreList = document.getElementById("genre-list");
+            const logoutButton = document.getElementById("logout-btn");
+            const listenNowButton = document.getElementById("listen-now");
+
+
+            logoutButton.addEventListener("click", () => {
+                // Clear user data from local storage or session
+                localStorage.removeItem("userSession");
+                sessionStorage.removeItem("userSession");
+        
+                // Redirect to login page
+                window.location.href = "login.html";
+            });
+            listenNowButton.addEventListener("click", () => {
+                const songSrc = "media/DNDM - Lost Emotions (Original mix).mp3";
+                if (isPlaying) {
+                    audioPlayer.pause();
+                    listenNowButton.textContent = "Listen Now";
+                } else {
+                    audioPlayer.src = songSrc;
+                    audioPlayer.play();
+                    listenNowButton.textContent = "Pause";
+                }
+                isPlaying = !isPlaying;
+            });
+        
 
             // Function to play the selected song
             function playSong(item) {
