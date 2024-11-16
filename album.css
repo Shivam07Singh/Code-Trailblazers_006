@@ -52,10 +52,15 @@ h1 {
     transition: transform 0.2s ease;
     position: relative;
 }
+.pause-btn{
+    color: black;
+    
+}
 
 .song-card:hover {
     transform: scale(1.05);
-    background-color: #444;
+    background-color: #b1fff2;;
+    
 }
 
 .song-card img {
