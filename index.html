@@ -249,20 +249,7 @@
                 // Redirect to login page
                 window.location.href = "login.html";
             });
-            listenNowButton.addEventListener("click", () => {
-                const songSrc = "media/DNDM - Lost Emotions (Original mix).mp3";
-                if (isPlaying) {
-                    audioPlayer.pause();
-                    listenNowButton.textContent = "Listen Now";
-                } else {
-                    audioPlayer.src = songSrc;
-                    audioPlayer.play();
-                    listenNowButton.textContent = "Pause";
-                }
-                isPlaying = !isPlaying;
-            });
-        
-
+           
             // Function to play the selected song
             function playSong(item) {
                 const songSrc = item.getAttribute("data-src");
