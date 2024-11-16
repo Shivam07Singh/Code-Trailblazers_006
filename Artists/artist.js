@@ -6,6 +6,7 @@ const artistList = document.getElementById('artistList');
 const searchBar = document.getElementById('searchBar');
 let favoriteArtists = JSON.parse(localStorage.getItem('favoriteArtists')) || [];
 
+// Get Spotify access token
 async function getAccessToken() {
   const response = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
@@ -18,30 +19,31 @@ async function getAccessToken() {
 
   const data = await response.json();
   accessToken = data.access_token;
-  fetchMohammedRafi(); // Fetch Mohammed Rafi as the default artist
+  fetchTrendingBollywoodArtists(); // Fetch Bollywood artists as default trending
 }
 
-async function fetchMohammedRafi() {
+// Fetch trending Bollywood artists
+async function fetchTrendingBollywoodArtists() {
   try {
-    const response = await fetch(`https://api.spotify.com/v1/search?q=Mohammed%20Rafi&type=artist&limit=1`, {
+    const response = await fetch(`https://api.spotify.com/v1/search?q=bollywood&type=artist&limit=15`, {
       headers: { 'Authorization': 'Bearer ' + accessToken }
     });
 
     const data = await response.json();
-    const artist = data.artists.items[0]; // Get the first artist result (Mohammed Rafi)
-    displayArtists([artist]);
+    displayArtists(data.artists.items); // Display Bollywood artists
   } catch (error) {
-    console.error('Failed to fetch Mohammed Rafi:', error);
-    artistList.innerHTML = `<p>Failed to load Mohammed Rafi.</p>`;
+    console.error('Failed to fetch Bollywood artists:', error);
+    artistList.innerHTML = `<p>Failed to load trending artists.</p>`;
   }
 }
 
+// Search for artists based on user input
 async function searchArtist() {
   const query = searchBar.value.trim().toLowerCase();
   if (!query) return;
 
   try {
-    const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=artist&limit=10`, {
+    const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=artist&limit=15`, {
       headers: { 'Authorization': 'Bearer ' + accessToken }
     });
     const data = await response.json();
@@ -52,6 +54,7 @@ async function searchArtist() {
   }
 }
 
+// Display artists on the page
 function displayArtists(artists) {
   artistList.innerHTML = '';
   artists.forEach(artist => {
@@ -77,6 +80,7 @@ function displayArtists(artists) {
   });
 }
 
+// Toggle favorite artist
 function toggleFavoriteArtist(event) {
   const artistId = event.target.dataset.id;
   const artistCard = event.target.closest('.artist-card');
@@ -100,12 +104,10 @@ function toggleFavoriteArtist(event) {
   window.dispatchEvent(new Event('favoriteUpdated')); // Dispatch an event when favorites are updated
 }
 
+// Open the favorites page
 function openFavoritesPage() {
   window.open('favorites.html', '_blank');
 }
-
-searchBar.addEventListener('input', searchArtist);
-getAccessToken();
 
 // Listen for the "favoriteUpdated" event to update heart colors
 window.addEventListener('favoriteUpdated', () => {
@@ -115,3 +117,9 @@ window.addEventListener('favoriteUpdated', () => {
     heart.style.color = isFavorite ? 'red' : 'gray';
   });
 });
+
+// Event listeners
+searchBar.addEventListener('input', searchArtist);
+
+// Initial setup
+getAccessToken();

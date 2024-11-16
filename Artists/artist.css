@@ -6,8 +6,9 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #cf9797;
-  color: #333;
+  background: url('https://img.freepik.com/free-vector/gradient-music-notes-background_23-2151320190.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color:white;
   padding: 20px;
 }
 
@@ -42,11 +43,12 @@ h2 {
 }
 
 .artist-card {
-  background-color: #fff;
+  background-color: #323258ee;
   width: 350px;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
   text-align: center;
   position: relative;
 }
@@ -96,4 +98,83 @@ h2 {
 
 .remove-btn {
   padding:3px;
+}
+
+#viewFavorites{
+  margin-left: 20px;
+  padding: 15px;
+  background-color: #1db954;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 5%;
+}
+
+.delete-icon {
+  color: rgb(207, 18, 18);
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.delete-icon:hover {
+  color: darkred;
+}
+
+
+/* Adjust layout for tablets (screen width less than 768px) */
+@media (max-width: 768px) {
+  .search-input {
+    width: 80%;
+  }
+
+  .artist-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .artist-card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .artist-card img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Adjust layout for mobile phones (screen width less than 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .search-input {
+    width: 90%;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .artist-card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .artist-card img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .heart {
+    font-size: 20px;
+  }
+
+  #viewFavorites {
+    font-size: 14px;
+    padding: 6px;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
 }

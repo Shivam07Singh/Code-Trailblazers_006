@@ -14,22 +14,25 @@ function displayFavoriteArtists() {
     artistCard.classList.add('artist-card');
 
     artistCard.innerHTML = `
-      <img src="${artist.image}" alt="${artist.name}">
-      <h3>${artist.name}</h3>
-      <a href="${artist.url}" target="_blank">View on Spotify</a>
-      <button class="remove-btn" data-id="${artist.id}">Remove</button>
-    `;
+    <img src="${artist.image}" alt="${artist.name}">
+    <h3>${artist.name}</h3>
+    <a href="${artist.url}" target="_blank">View on Spotify</a>
+    <span class="delete-icon" data-id="${artist.id}">
+      <i class="fa-solid fa-trash-can"></i>
+    </span>
+  `;
+  
 
     favoriteList.appendChild(artistCard);
   });
 
-  document.querySelectorAll('.remove-btn').forEach(button => {
-    button.addEventListener('click', removeFavoriteArtist);
+  document.querySelectorAll('.delete-icon').forEach(icon => {
+    icon.addEventListener('click', removeFavoriteArtist);
   });
 }
 
 function removeFavoriteArtist(event) {
-  const artistId = event.target.dataset.id;
+  const artistId = event.target.closest('.delete-icon').dataset.id;
   favoriteArtists = favoriteArtists.filter(artist => artist.id !== artistId);
   localStorage.setItem('favoriteArtists', JSON.stringify(favoriteArtists));
   displayFavoriteArtists();
