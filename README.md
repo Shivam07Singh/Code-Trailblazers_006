@@ -1,7 +1,7 @@
 
 # 🎵 Open Source Music Streaming Application  
 
-A free and open-source music streaming platform revolutionizing how users discover, listen to, and share music. Built to rival giants like YouTube and Spotify, this application provides a personalized, immersive experience through advanced frontend techniques and Firebase integration.  
+A free and open-source music streaming platform revolutionizing how users discover, listen to and share music. Built to rival giants like YouTube and Spotify, this application provides a personalized, immersive experience through advanced frontend techniques and Firebase integration.  
 
 ---
 
@@ -11,7 +11,7 @@ Frontend
 ---
 
 ## 🌐 **Deployed Application**  
-Live Demo: [Music Streaming Application](https://your-netlify-app-link.netlify.app/)  
+Live Demo: [Music Streaming Application](https://newsonicsargam.netlify.app/login.html)  
 
 ---
 
@@ -20,9 +20,11 @@ Live Demo: [Music Streaming Application](https://your-netlify-app-link.netlify.a
 music-streaming-app/
 ├─ index.html
 ├─ login.html
+├─ signup.html
 ├─ album.html
 ├─ podcast.html
-├─ about.html
+├─ artist.html
+├─ playlist.html
  
 
 ---
@@ -45,7 +47,7 @@ Our music streaming platform includes the following features:
    - Discover trending tracks and personalized music suggestions.  
 
 4. **Podcasts**  
-   - Listen to your favorite podcasts and discover new ones.  
+   - Listen to your favourite podcasts and discover new ones.  
 
 5. **Firebase Authentication**  
    - Secure login and signup functionality using Firebase.  
@@ -66,8 +68,8 @@ Our music streaming platform includes the following features:
 
 ### Step 1: Clone the Project  
 ```bash  
-git clone https://github.com/your-username/music-streaming-app.git  
-cd music-streaming-app  
+git clone https://github.com/Shivam07Singh/Code-Trailblazers_006.git  
+cd Code-Trailblazers_006
 ```  
 
 ### Step 2: Set Up Firebase  
@@ -84,8 +86,8 @@ cd music-streaming-app
 After cloning the repository, open the project in a browser using Live Server to experience the app.  
 
 ### Credentials:  
-- **Login ID**: `admin@gmail.com`  
-- **Password**: `admin`  
+- **Login ID**: `testing@gmail.com`  
+- **Password**: `123456`  
 
 ---
 
@@ -107,9 +109,11 @@ After cloning the repository, open the project in a browser using Live Server to
 
 ## 🤝 **Contributors**  
 
-- **Your Name**: Project Lead & Developer  
-- **Team Member 1**: Firebase Integration & Authentication  
-- **Team Member 2**: UI/UX Designer  
+- **Shivam Kumar Singh**: Project Lead & Developer  
+- **Shivam Shrivastava**: Dashboard and Podcast
+- **Utkarsh Chauhan**: Playlist Page
+- **Rajesh Yadav**: Artist Page
+- **Raushan Jha**: Album Page
 
 ---
 
