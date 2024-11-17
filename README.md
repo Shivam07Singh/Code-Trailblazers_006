@@ -30,7 +30,7 @@ music-streaming-app/
 ---
 
 ## 🎥 **Video Walkthrough**  
-Check out a walkthrough of our music streaming application: [YouTube Link](https://youtu.be/example-link)  
+Check out a walkthrough of our music streaming application: [YouTube Link](https://youtu.be/MV1kAekkdm0)  
 
 ---
 
