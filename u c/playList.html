@@ -3,32 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Play List</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>PlayList</title>
   <link rel="stylesheet" href="playList.css">
 </head>
 <body>
-  <header class="flex items-center justify-between px-6 py-4 bg-gray-900 shadow-md">
-    <div class="flex items-center space-x-4">
-        <a href=""><img src="/Code-Trailblazers_006/assets/Logo-2.jpg" alt="logo" id="logo" class="rounded-full shadow-lg"></a>
-    <h1 id="playlist" class="text-3xl font-bold text-white">Play List</h1>
+  <header class="header">
+    <div class="header-left">
+        <a href=""><img src="/Code-Trailblazers_006/assets/Logo-2.jpg" alt="logo" id="logo1" class="logo1"></a>
+        <h1 id="playlist1" class="title1">Play List</h1>
     </div>
-    <div class="search-container flex items-center">
-      <input type="text" id="searchInput" placeholder="Search for songs or artists..." class="px-4 py-2 rounded-l-md w-64 bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-green-500">
-      <button id="searchButton" class="bg-green-600 px-4 py-2 rounded-r-md text-white hover:bg-green-700 transition">Search</button>
+    <div class="search-container1">
+      <input type="text" id="searchInput1" placeholder="Search for songs or artists..." class="search-input1">
+      <button id="searchButton1" class="search-button1">Search</button>
     </div>
 
     
-    <div class="user">
-        <a href=""><img src="/Code-Trailblazers_006/assets/profile.png" alt=""></a>
-    </div>
-
+    <div class="user1">
+        <a href=""><img src="/Code-Trailblazers_006/assets/profile.png" alt="User profile"></a>
     </div>
   </header>
 
-  <main class="min-h-screen bg-gray-800 text-white list1">
-    <h2 id="sectionTitle" class="text-2xl font-semibold text-center my-8 " >Explore Music</h2>
-    <div id="songContainer" class="song-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 px-6 light_item"></div>
+  <main class="main1">
+    <h2 id="sectionTitle1" class="section-title1">Explore Music</h2>
+    <div id="songContainer1" class="song-container1"></div>
   </main>
 
   <script src="playList.js"></script>
