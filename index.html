@@ -3,50 +3,346 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <title>Code Trailblazers_006</title>
-    <script>
-      window.onload = function () {
-        if (localStorage.getItem("loggedIn") !== "true") {
-          window.location.href = "login.html";
-        } else {
-          console.log("Logged in sucessfully");
-        }
-      };
-    </script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Music Player Platform | AsmrProg</title>
   </head>
+
   <body>
-    <header>
-      <h1>Code Trailblazers_006</h1>
-      <button id="logout-btn">Logout</button>
-    </header>
-    <section id="controls">
-      <select id="categoryFilter">
-        <option value="">All Categories</option>
-        <option value="Furniture">Furniture</option>
-        <option value="Home & Kitchen">Home & Kitchen</option>
-        <option value="Cameras">Cameras</option>
-        <option value="Home Appliances">Home Appliances</option>
-        <option value="Wearables">Wearables</option>
-      </select>
+    <div class="container">
+      <aside class="sidebar">
+        <img
+          width="100%"
+          src="./logo.jpeg"
+          alt="logo"
+          id="logo"
+          class="rounded-full shadow-lg"
+          style="border-radius: 50%"
+        />
+        <div class="logo">
+          <button class="menu-btn" id="menu-close">
+            <i class="bx bx-log-out-circle"></i>
+          </button>
+          <i class="bx bx-pulse"></i>
+          <a href="#"
+            >Sonic <br />
+            Sargam</a
+          >
+        </div>
+        <div class="menu">
+          <h5>Menu</h5>
+          <ul>
+            <li>
+              <i class="bx bxs-bolt-circle"></i
+              ><a href="https://open.spotify.com/home?facet=music-chip" target="_blank">Explore</a>
+            </li>
+            <li><i class="bx bxs-volume-full"></i><a href="playList.html">Playlist</a></li>
+            <li><i class="bx bxs-album"></i><a href="album.html">Albums</a></li>
+            <li><i class="bx bxs-microphone"></i><a href="Artists/artist.html">Artists</a></li>
+            <li><i class="bx bxs-radio"></i><a href="podcast.html">Podcasts</a></li>
+          </ul>
+        </div>
+        <div class="playing">
+          <div class="top">
+            <img src="assets/current.png" alt="Current Device" />
+            <h4>sonic<br />sargam</h4>
+          </div>
+          <div class="bottom">
+            <i class="bx bx-podcast"></i>
+            <p>Playing On Device</p>
+          </div>
+        </div>
+      </aside>
 
-      <select id="sortByPrice">
-        <option value="asc">Sort by Price: Low to High</option>
-        <option value="desc">Sort by Price: High to Low</option>
-      </select>
-      <a href="cart.html" id="cart_icon">
-        <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #6e6e6e"></i>
-      </a>
-    </section>
+      <main>
+        <header>
+          <div class="nav-links">
+            <button class="menu-btn" id="menu-open">
+              <i class="bx bx-menu"></i>
+            </button>
+          </div>
+          <div class="search">
+            <i class="bx bx-search"></i>
+            <input type="text" id="search-input" placeholder="Search songs, artists, genres..." />
+          </div>
+          <div class="logout-container">
+            <button id="logout-btn">Logout</button>
+          </div>
+        </header>
 
-    <section id="product-container"></section>
+        <div class="trending">
+          <div class="left">
+            <h5>Trending New Song</h5>
+            <div class="info">
+              <h2>Lost Emotions</h2>
+              <h4>Rion Clarke</h4>
+              <h5>63 Million Plays</h5>
+              <div class="buttons">
+                <!-- Button to toggle audio play/pause -->
+                <audio controls>
+                  <source src="media\DNDM - Lost Emotions (Original mix).mp3" type="audio/mp3" />
+                  Your browser does not support the audio element.
+                </audio>
+                <i class="bx bxs-heart"></i>
+              </div>
+            </div>
+          </div>
+          <img src="assets/trend.png" alt="Trending Image" />
+        </div>
 
-    <script src="cart.js"></script>
-    <script src="script.js"></script>
-    <script src="auth.js"></script>
+        <div class="playlist">
+          <div class="genres">
+            <div class="header">
+              <h5>Playlist</h5>
+              <a href="#">See all</a>
+            </div>
+            <div class="items" id="genre-list">
+              <div class="item">
+                <p>Electro<br />Pop</p>
+              </div>
+              <div class="item">
+                <p>Dance<br />Beat</p>
+              </div>
+              <div class="item">
+                <p>Clubhouse<br />Remix</p>
+              </div>
+              <div class="item">
+                <p>Hip Hop<br />Rap</p>
+              </div>
+              <div class="item">
+                <p>Alternative<br />Indie</p>
+              </div>
+              <div class="item">
+                <p>Classical<br />Period</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="music-list" id="music-list">
+            <div class="header">
+              <h5>Top Songs</h5>
+              <a href="#">See all</a>
+            </div>
+            <div class="items" id="song-list">
+              <div class="item" data-src="media\Sunrise G Thing 320 Kbps.mp3">
+                <div class="info">
+                  <p>01</p>
+                  <img src="assets/song-1.png" alt="Sunrise" />
+                  <div class="details">
+                    <h5>Sunrise</h5>
+                    <p>Lila Rivera</p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <p>03:45</p>
+                  <div class="icon"><i class="bx bxs-right-arrow"></i></div>
+                  <i class="bx bxs-plus-square"></i>
+                </div>
+              </div>
+              <div class="item" data-src="media\Shape-Of-You(PagalNew.Com.Se).mp3">
+                <div class="info">
+                  <p>02</p>
+                  <img src="assets/song-2.png" alt="Shape-Of-You" />
+                  <div class="details">
+                    <h5>Shape-Of-You</h5>
+                    <p>Ed Sheeren</p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <p>04:35</p>
+                  <div class="icon"><i class="bx bxs-right-arrow"></i></div>
+                  <i class="bx bxs-plus-square"></i>
+                </div>
+              </div>
+              <div class="item" data-src="media\Justin Bieber - Baby ft. Ludacris.mp3">
+                <div class="info">
+                  <p>02</p>
+                  <img src="assets/song-3.png" alt="Ludacris" />
+                  <div class="details">
+                    <h5>Baby ft. Ludacris</h5>
+                    <p>Justin Bieber</p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <p>04:35</p>
+                  <div class="icon"><i class="bx bxs-right-arrow"></i></div>
+                  <i class="bx bxs-plus-square"></i>
+                </div>
+              </div>
+              <div class="item" data-src="media\Imagine Dragons - Believer (Lyrics).mp3">
+                <div class="info">
+                  <p>02</p>
+                  <img src="assets/song-4.png" alt="Believer" />
+                  <div class="details">
+                    <h5>Believer</h5>
+                    <p>Imagine Dragons</p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <p>04:35</p>
+                  <div class="icon"><i class="bx bxs-right-arrow"></i></div>
+                  <i class="bx bxs-plus-square"></i>
+                </div>
+              </div>
+              <div
+                class="item"
+                data-src="media\Hanumankind  Big Dawgs  Ft. Kalmi (Official Music Video)  Def Jam India.mp3"
+              >
+                <div class="info">
+                  <p>02</p>
+                  <img src="assets/trend.png" alt="Big Dawgs" />
+                  <div class="details">
+                    <h5>Big Dawgs</h5>
+                    <p>Hanumankind</p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <p>04:35</p>
+                  <div class="icon"><i class="bx bxs-right-arrow"></i></div>
+                  <i class="bx bxs-plus-square"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class="right-section">
+        <div class="profile">
+          <i class="bx bxs-bell"></i>
+          <i class="bx bxs-cog"></i>
+          <div class="user">
+            <div class="left"><img src="assets/profile.png" alt="Profile" /></div>
+            <div class="right"><h5>Jhon Doe</h5></div>
+          </div>
+        </div>
+        <div class="music-player">
+          <div class="top-section">
+            <div class="header">
+              <h5>Player</h5>
+              <i class="bx bxs-playlist"></i>
+            </div>
+            <div class="song-info">
+              <img src="assets/player.png" alt="Album Art" />
+              <div class="description">
+                <h3>Ripple Echoes</h3>
+                <h5>Kael Fischer</h5>
+                <p>Best of 2024</p>
+              </div>
+              <div class="progress">
+                <p>02:45</p>
+                <div class="active-line"></div>
+                <div class="deactive-line"></div>
+                <p>01:02</p>
+              </div>
+            </div>
+          </div>
+          <div class="player-actions">
+            <div class="buttons">
+              <i class="bx bx-repeat"></i>
+              <i class="bx bx-first-page"></i>
+              <i class="bx bxs-right-arrow play-button"></i>
+              <i class="bx bx-last-page"></i>
+              <i class="bx bx-transfer-alt"></i>
+              <!-- Pause Button -->
+              <i class="bx bx-pause pause-button"></i>
+            </div>
+            <div class="lyrics">
+              <i class="bx bx-chevron-up"></i>
+              <h5>LYRICS</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <audio id="audio-player" controls style="display: none"></audio>
+
+    <!-- JavaScript to handle song playback and search functionality -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const audioPlayer = document.getElementById("audio-player");
+        const songItems = document.querySelectorAll(".music-list .item");
+        const pauseButton = document.querySelector(".pause-button");
+        const playButton = document.querySelector(".play-button");
+        const searchInput = document.getElementById("search-input");
+        const songList = document.getElementById("song-list");
+        const genreList = document.getElementById("genre-list");
+        const logoutButton = document.getElementById("logout-btn");
+        const listenNowButton = document.getElementById("listen-now");
+
+        logoutButton.addEventListener("click", () => {
+          // Clear user data from local storage or session
+          localStorage.removeItem("userSession");
+          sessionStorage.removeItem("userSession");
+
+          // Redirect to login page
+          window.location.href = "login.html";
+        });
+
+        // Function to play the selected song
+        function playSong(item) {
+          const songSrc = item.getAttribute("data-src");
+
+          if (songSrc) {
+            audioPlayer.src = songSrc; // Set audio source
+            audioPlayer.play(); // Play the song
+            updatePlayPauseIcons(true);
+          }
+        }
+
+        // Function to update play/pause icons
+        function updatePlayPauseIcons(isPlaying) {
+          if (isPlaying) {
+            playButton.style.display = "none";
+            pauseButton.style.display = "inline-block";
+          } else {
+            playButton.style.display = "inline-block";
+            pauseButton.style.display = "none";
+          }
+        }
+
+        // Pause song functionality
+        pauseButton.addEventListener("click", () => {
+          audioPlayer.pause();
+          updatePlayPauseIcons(false);
+        });
+
+        // Add click event listener to each song item
+        songItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            playSong(item);
+          });
+        });
+
+        // Update play/pause icon when audio is paused
+        audioPlayer.addEventListener("pause", () => {
+          updatePlayPauseIcons(false);
+        });
+
+        // Update play/pause icon when audio is played
+        audioPlayer.addEventListener("play", () => {
+          updatePlayPauseIcons(true);
+        });
+
+        // Search functionality
+        searchInput.addEventListener("input", (event) => {
+          const query = event.target.value.toLowerCase();
+
+          // Filter song items based on search query
+          const filteredSongs = Array.from(songItems).filter((item) => {
+            const songTitle = item.querySelector("h5").textContent.toLowerCase();
+            const songArtist = item.querySelector("p").textContent.toLowerCase();
+            return songTitle.includes(query) || songArtist.includes(query);
+          });
+
+          // Clear the existing song list and append filtered songs
+          songList.innerHTML = "";
+          filteredSongs.forEach((item) => {
+            songList.appendChild(item);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
