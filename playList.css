@@ -1,0 +1,237 @@
+/* Root Variables for Theme */
+:root {
+    --dark-bg: #1a202c;
+    --darker-gray: #2d3748;
+    --green: #48bb78;
+    --hover-green: #38a169;
+    --text-light: #e2e8f0;
+    --text-muted: #a0aec0;
+    --gray-border: #4a5568;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg); /* Dark background */
+    color: var(--text-light); /* Light text color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    background-color: var(--darker-gray);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+#playlist1 {
+    color: var(--green);
+    font-size: 1.875rem; /* 30px */
+}
+
+/* Logo Styling */
+#logo1 {
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--gray-border);
+    border-radius: 50%;
+}
+
+/* Search Container */
+.search-container1 {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.search-container1 input {
+    background-color: var(--gray-border);
+    color: var(--text-light);
+    border: 1px solid var(--darker-gray);
+    border-radius: 4px 0 0 4px;
+    padding: 8px;
+    transition: border 0.3s ease;
+    width: 200px;
+}
+
+.search-container1 input:focus {
+    border-color: var(--green);
+}
+
+.search-container1 button {
+    background-color: var(--green);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s ease;
+}
+
+.search-container1 button:hover {
+    background-color: var(--hover-green);
+}
+
+.search-container1 button:focus {
+    outline: 2px solid var(--hover-green);
+    outline-offset: 2px;
+}
+
+/* User Profile */
+.user1 {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--text-light);
+    border-radius: 50%;
+}
+
+.user1 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Section Title */
+#sectionTitle1{
+    color: var(--green);
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.5rem;
+    
+}
+
+/* Song Container List Layout */
+.song-container1 {
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: greenyellow; */
+    gap: 16px;
+    padding: 16px;
+}
+
+/* List Item Styling */
+.song-container1 div {
+    display: flex;
+    align-items: center;
+    background: var(--darker-gray);
+    color: var(--text-light);
+    padding: 12px;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.3s ease;
+    width: calc(100% / 2 - 16px); /* Two items per row */
+}
+
+.song-container1 div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(72, 187, 10, 0.3); /* Green shadow on hover */
+
+}
+
+/* Circular Image Styling */
+.song-container1 img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 16px;
+    object-fit: cover;
+}
+
+/* Song Details */
+.song-details1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.song-details1 h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.song-details1 p {
+    margin: 4px 0 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Responsive Design */
+
+/* Phones (max-width: 640px) */
+@media (max-width: 640px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #playlist1 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+
+    .search-container1 input {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .user1 {
+        width: 30px;
+        height: 30px;
+    }
+
+    .song-container1 div {
+        width: 100%; /* Full width for mobile */
+    }
+
+    .song-container1 img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Tablets (min-width: 641px and max-width: 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .song-container1 img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .song-details1 h4 {
+        font-size: 1.4rem;
+    }
+
+    .song-details1 p {
+        font-size: 1rem;
+    }
+}
+
+/* Laptops and Desktops (min-width: 1025px) */
+@media (min-width: 1025px) {
+    .search-container1 input {
+        width: 300px;
+    }
+
+    .song-container1 img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .song-details1 h4 {
+        font-size: 1.5rem;
+    }
+
+    .song-details1 p {
+        font-size: 1.1rem;
+    }
+}
