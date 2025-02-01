@@ -11,7 +11,7 @@ Frontend
 ---
 
 ## 🌐 **Deployed Application**  
-Live Demo: [Music Streaming Application](https://newsonicsargam.netlify.app/login.html)  
+Live Demo: https://newsonicsargam.netlify.app  
 
 ---
 
